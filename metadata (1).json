@@ -1,0 +1,138 @@
+{
+  "dataset": {
+    "name": "Movie Lens Dataset",
+    "filename": "movie_data.csv",
+    "source": "Kaggle / GroupLens MovieLens",
+    "url": "https://grouplens.org/datasets/movielens/",
+    "format": "CSV",
+    "encoding": "UTF-8",
+    "separator": ","
+  },
+
+  "dimensions": {
+    "total_rows": 100836,
+    "total_columns": 7,
+    "unique_movies": 9742,
+    "unique_users": 610
+  },
+
+  "date_coverage": {
+    "earliest": "1996-03-29",
+    "latest": "2018-09-24",
+    "timestamp_format": "Unix epoch (seconds)"
+  },
+
+  "columns": [
+    {
+      "name": "movieId",
+      "type": "integer",
+      "nullable": true,
+      "missing_rows": 91094,
+      "description": "Unique identifier for each movie",
+      "example": 1
+    },
+    {
+      "name": "userId",
+      "type": "integer",
+      "nullable": false,
+      "missing_rows": 0,
+      "description": "Unique identifier for each user",
+      "min": 1,
+      "max": 610,
+      "example": 1
+    },
+    {
+      "name": "genres",
+      "type": "string",
+      "nullable": true,
+      "missing_rows": 91094,
+      "description": "Pipe-separated list of genres assigned to the movie",
+      "format": "Genre1|Genre2|Genre3",
+      "example": "Adventure|Animation|Children|Comedy|Fantasy"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "nullable": true,
+      "missing_rows": 91094,
+      "description": "Movie title with release year appended in parentheses",
+      "format": "Title (YYYY)",
+      "example": "Toy Story (1995)"
+    },
+    {
+      "name": "tag",
+      "type": "string",
+      "nullable": true,
+      "missing_rows": 97153,
+      "description": "Free-text tag applied by the user to describe the movie",
+      "example": "funny"
+    },
+    {
+      "name": "timestamp",
+      "type": "integer",
+      "nullable": false,
+      "missing_rows": 0,
+      "description": "Unix timestamp of when the rating or tag was submitted",
+      "min": 828124613,
+      "max": 1537799250,
+      "example": 964982703
+    },
+    {
+      "name": "rating",
+      "type": "float",
+      "nullable": false,
+      "missing_rows": 0,
+      "description": "User rating for the movie on a scale of 0.5 to 5.0 in 0.5 increments",
+      "min": 0.5,
+      "max": 5.0,
+      "mean": 3.50,
+      "std": 1.04,
+      "example": 4.0
+    }
+  ],
+
+  "rating_distribution": {
+    "0.5": 1370,
+    "1.0": 2811,
+    "1.5": 1791,
+    "2.0": 7551,
+    "2.5": 5550,
+    "3.0": 20047,
+    "3.5": 13136,
+    "4.0": 26818,
+    "4.5": 8551,
+    "5.0": 13211
+  },
+
+  "top_genres": {
+    "Drama": 4361,
+    "Comedy": 3756,
+    "Thriller": 1894,
+    "Action": 1828,
+    "Romance": 1596,
+    "Adventure": 1263,
+    "Crime": 1199,
+    "Sci-Fi": 980,
+    "Horror": 978,
+    "Fantasy": 779
+  },
+
+  "use_cases": [
+    "Collaborative filtering recommendation system",
+    "Content-based filtering using genres and tags",
+    "NLP analysis on user-generated tags",
+    "Rating prediction (regression or classification)",
+    "Exploratory data analysis and visualization",
+    "Time-series analysis of rating trends"
+  ],
+
+  "notes": [
+    "The genres column uses pipe (|) as a multi-value separator",
+    "The title column embeds the release year in parentheses at the end",
+    "The timestamp column is in Unix epoch format (seconds since 1970-01-01)",
+    "Rows with null movieId, genres, and title are rating-only rows without movie metadata",
+    "Tags are sparse — most rows contain ratings without an associated tag"
+  ],
+
+  "license": "MovieLens data is provided by GroupLens Research. See https://grouplens.org/datasets/movielens/ for terms of use."
+}
